@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/Chart.min.css">
+</head>
+<body>
+    <section class="main">
+        <div class="container">
+            <h1 class="title-h1">Полет радиопередатчика</h1>
+            <p class="subtitle">Загрузите файл с показаниями радиоприемников</p>
+            <div class="btns__container">
+                <div class=btns>
+                    <div class="input__wrapper">
+                        <input name="document" type="file" id="file" class=" input__file btn-input" accept="text/plain">
+                        <label for="file" class="input__file-button">
+                        <span class="input__file-button-text">Выберите файл</span>
+                        </label>
+                    </div>
+                    <button class="btn">Посчитать</button>
+                </div>
+            </div>
+            <div class="canvas">
+                <canvas id="canvas"></canvas>
+            </div>
+            <div class="description">
+                <div class="container">
+                    <div class="decsription__item">
+                        <div class="item__circle item__one"></div>
+                        <div class="item__title">Радиоприемник</div>
+                    </div>
+                    <div class="decsription__item">
+                        <div class="item__circle item__two"></div>
+                        <div class="item__title">Радиопередатчик</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="js/main.js"></script>
+    <script src="js/Chart.min.js"></script>
+</body>
+</html>

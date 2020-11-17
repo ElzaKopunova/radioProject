@@ -1,0 +1,121 @@
+body {
+    font-family: 'Roboto', sans-serif; 
+    margin: 0;
+    height: 100%;
+    padding: 0;
+}
+.main {
+    text-align: center;
+    min-height: 100vh;
+    padding: 30px 0;
+}
+.container {
+    margin: 0 auto;
+    max-width: 1140px;
+    padding: 0 15px;
+}
+.title-h1 {
+    font-size: 34px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-align: center;
+}
+.subtitle {
+    font-size: 20px;
+}
+.btns__container {
+    display: flex;
+    justify-content: center;
+}
+.btns {
+    width: 1030px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 15px 0;
+}
+/* убрать обводку у кнопки при нажатии */
+button ::-moz-focus-inner{ 
+    border: 0;
+}
+button:active, button:focus {
+    outline: none;
+}
+.input__file {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+}  
+.input__file-button-text {
+    line-height: 1;
+    margin-top: 1px;
+    margin: 0 auto;
+    padding: 0 18px;
+}
+.input__file-button {
+    width: 100%;
+    max-width: 180px;
+    height: 60px;
+    text-transform: uppercase;
+    background: #009B95;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 3px;
+    cursor: pointer;    
+    letter-spacing: 0.7px;
+}
+.btn{ 
+    letter-spacing: 0.7px;
+    border: 1px solid  #FF7100;
+    padding: 20px 25px;
+    text-transform: uppercase;
+    background: #FF7100;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#canvas {
+    height: 800px;
+    width: 1000px;
+    max-width: 100%;
+    border: 1px solid #cfcfcf;
+    border-radius: 5px;
+    padding: 10px;
+}
+.output-container p {
+    font-size: 20px;
+}
+ul{
+    list-style: none;
+    padding-left: 0;
+}
+
+.decsription__item {
+    display: flex;
+    align-items: center;
+    padding: 10px 40px;
+}
+.item__circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.item__one {
+    background-color: #009B95;
+}
+.item__two {
+    background-color: #FF7100;
+}
+.item__title {
+    padding-left: 20px;
+}
+
+
+
