@@ -80,15 +80,21 @@ function downloadFile(){
                             let t2 = arrayOfTimes[j][1];
                             let t3 = arrayOfTimes[j][2];
                             console.log('t1 = ' + t1 + ' t2= ' + t2 + ' t3= ' + t3);
+                            const e = 1e-5;  //погрешность для проверки
                             let x = 0;
                             let y = 0;
                             let v = 1000;   //скорость сигнала 
                             r1 = t1 * v;
                             r2 = t2 * v;
                             r3 = t3 * v;
-                            x = ((y2 - y1) * (r2 * r2 - r3 * r3 - y2 * y2 + y3 * y3 - x2 * x2 + x3 * x3) - (y3 - y2) * (r1 * r1 - r2 * r2 - y1 * y1 + y2 * y2 - x1 * x1 + x2 * x2)) / (2 * ((y3 - y2) * (x1 - x2)  - (y2 - y1) * (x2 - x3)));
+                            x = ((y2 - y1) * (r2 * r2 - r3 * r3 - x2 * x2 + x3 * x3 - y2 * y2 + y3 * y3) - (y3 - y2) * (r1 * r1 - r2 * r2 - x1 * x1 + x2 * x2 - y1 * y1 + y2 * y2)) / (2 * ((y3 - y2) * (x1 - x2)  - (y2 - y1) * (x2 - x3)));
                             y = ((x2 - x1) * (r2 * r2 - r3 * r3 - x2 * x2 + x3 * x3 - y2 * y2 + y3 * y3) - (x3 - x2) * (r1 * r1 - r2 * r2 - x1 * x1 + x2 * x2 - y1 * y1 + y2 * y2)) / (2 * ((x3 - x2) * (y1 - y2)  - (x2 - x1) * (y2 - y3)));
-                            arrayOfXandY.push(x.toFixed(3), y.toFixed(3));
+                            if (Math.abs((x1 - x) * (x1 - x) + (y1 - y) * (y1 - y) - r1 * r1) < e && Math.abs((x2 - x) * (x2 - x) + (y2 - y) * (y2 - y) - r2 * r2) < e && Math.abs((x3 - x) * (x3 - x) + (y3 - y) * (y3 - y) - r3 * r3) < e){    // проверка
+                                arrayOfXandY.push(x.toFixed(3), y.toFixed(3)); 
+                            } else {
+                                console.log(`координата (${x}, ${y}) не входит`);
+                            }
+                            // arrayOfXandY.push(x.toFixed(3), y.toFixed(3));
                         }
                         callback(data1, arrayOfXandY);
                     }                    
