@@ -21,7 +21,6 @@ function insertDiv(massiv){  //отображение координат спи�
     lascSection.append(div);
 }
 
-
 function downloadFile(){
     if (window.File && window.FileReader && window.FileList && window.Blob){
         let files = document.getElementById('file').files;
@@ -34,9 +33,8 @@ function downloadFile(){
 
                 reader.onload =()=>{
                     function Coordinates(info){
-                        const res = info.replace(/,\s\d\s[измерение]/, '').replace(/[^,\d;\n]/g, ''); //исключить слова из строки
-                        const resulCoordinates = res.split(/,|;|\n/).map(Number);  //создаем массив всех считанных чисел
-                        console.log(resulCoordinates)
+                        const resulCoordinates = info.split(/,|;|\n/).map(Number);  //создаем массив всех считанных чисел
+                        console.log(resulCoordinates);
                         return  resulCoordinates;
                     }
                     var arrayOfCoordinatis = Coordinates(reader.result);
@@ -46,7 +44,7 @@ function downloadFile(){
                     const y2 = arrayOfCoordinatis[3];
                     const x3 = arrayOfCoordinatis[4];
                     const y3 = arrayOfCoordinatis[5];      
-                    let data1 = [{ //данные для графика
+                    let data1 = [{        //данные для графика
                         x: x1,
                         y: y1,
                         r: 8
@@ -62,7 +60,6 @@ function downloadFile(){
                         r: 8
                     }];
                     const times = arrayOfCoordinatis.slice(6, arrayOfCoordinatis.length); 
-                    
                     let getTimes = function(times){         //получаем массив, хранящий время пролета каждого сигнала
                         let arrayOfTimes = [];
                         for (let i = 0; i < times.length; i+=3){
@@ -83,7 +80,7 @@ function downloadFile(){
                             const e = 1e-5;  //погрешность для проверки
                             let x = 0;
                             let y = 0;
-                            let v = 1000;   //скорость сигнала 
+                            let v = 1;  
                             r1 = t1 * v;
                             r2 = t2 * v;
                             r3 = t3 * v;
@@ -101,7 +98,7 @@ function downloadFile(){
                     getXAndY(arrayOfTimes, function(data, massiv){    //строим график 
                         let dataTwo = []
                         for (let i = 0; i < massiv.length; i+=2){
-                            let dataElement = { x : massiv[i], y: massiv[i+1]};
+                            let dataElement = { x : massiv[i], y: massiv[i+1] };
                             dataTwo.push(dataElement);
                         }
                         let myChart = new Chart(ctx, {
